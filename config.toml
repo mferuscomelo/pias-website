@@ -1,3 +1,12 @@
-baseURL = "http://example.org/"
+baseURL = "http://piafc.com/"
+enableRobotsTXT = true
 languageCode = "en-us"
-title = "My New Hugo Site"
+# TODO: change title
+title = "Pia Ferus-Comelo"
+publishDir = "public"
+
+[minify]
+  minifyOutput = true
+  
+[markup.goldmark.renderer]
+    unsafe= true
