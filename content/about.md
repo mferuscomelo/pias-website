@@ -1,10 +1,9 @@
 ---
 title: "About"
-description: 
+description: Pia is a high school student who loves to make and share art
 type: "misc"
 layout: "about"
 ---
-<!-- TODO: Description -->
 
 I’m a high school student who loves art and use this website as a platform to share my paintings, sketches and drawings. 
 

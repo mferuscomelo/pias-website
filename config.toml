@@ -1,8 +1,7 @@
 baseURL = "http://piafc.com/"
 enableRobotsTXT = true
 languageCode = "en-us"
-# TODO: change title
-title = "Pia Ferus-Comelo"
+title = "Pia Ferus-Comelo | Artist"
 publishDir = "public"
 
 [minify]

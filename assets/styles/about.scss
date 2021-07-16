@@ -9,3 +9,33 @@
         height: auto;
     }
 }
+
+#testimonials {
+    h2 {
+        margin-bottom: 2.5rem;
+    } 
+    
+    .testimonials-container {
+    
+        .card {
+            position: relative;
+    
+            i {
+                position: absolute;
+                top: -0.75rem;
+                left: 0.75rem;
+    
+                svg {
+                    width: auto;
+                    height: 1.75rem;
+                    border-radius: 0;
+                }
+            }
+    
+            p:last-of-type {
+                line-height: 1;
+                width: 100%;
+            }
+        }
+    }
+}

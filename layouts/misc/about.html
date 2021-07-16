@@ -1,13 +1,31 @@
 {{ define "main" }}
-<div class="content">
-    <div class="about-container">
-        {{ $image_jpg := resources.Get "/images/pia.jpeg" }}
-        {{ partial "picture" (dict "img_jpg" $image_jpg "alt" "Pia Ferus-Comelo") }}
-        <div class="text">
-            <h1>Hi! I'm Pia</h1>
-            {{ .Content | safeHTML }}
-            {{ partial "socials" . }}
+<section>
+    <div class="content">
+        <div class="about-container">
+            {{ $image_jpg := resources.Get "/images/pia.jpeg" }}
+            {{ partial "picture" (dict "img_jpg" $image_jpg "alt" "Pia Ferus-Comelo") }}
+            <div class="text">
+                <h1>Hi! I'm Pia</h1>
+                {{ .Content | safeHTML }}
+                {{ partial "socials" . }}
+            </div>
         </div>
     </div>
-</div>
+</section>
+<section id="testimonials">
+    <div class="content">
+        <h2 class="text-center bold">Testimonials</h2>
+
+        <div class="testimonials-container">
+            {{ range $testimonial := (where .Site.RegularPages "Type" "testimonials") }}
+
+            {{ partial "testimonial" $testimonial }}
+
+            {{ end }}
+        </div>
+    </div>
+</section>
+<section id="credits">
+    <p class="text-center">Icons by <a href="https://fontawesome.com/license">Font Awesome</a></p>
+</section>
 {{ end }}

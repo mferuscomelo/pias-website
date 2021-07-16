@@ -1,5 +1,4 @@
 ---
 title: Home
-description: 
+description: Look at Pia’s wonderful artwork  - paintings, drawings, handmade cards and more
 ---
-<!-- TODO: description -->
