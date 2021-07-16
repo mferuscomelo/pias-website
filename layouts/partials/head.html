@@ -1,0 +1,27 @@
+<head>
+    <!-- Meta Tags -->
+    {{ partial "meta" . }}
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/img/favicon.ico">
+
+    <!-- Google Fonts -->
+    {{ $font_link := "https://fonts.googleapis.com/css2?family=Ubuntu+Mono&family=Montserrat:ital,wght@0,400;0,500;1,400&display=swap" }}
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    <link rel="preload" as="style" href="{{ $font_link }}">
+    <link rel="stylesheet" href="{{ $font_link }}">
+
+    <!-- Styles -->
+    {{ $main_styles := resources.Get "styles/main.scss" | toCSS | minify | fingerprint }}
+    <link rel="stylesheet" href="{{ $main_styles.RelPermalink }}" integrity="{{ $main_styles.Data.Integrity }}">
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script defer src="/__/firebase/8.4.3/firebase-app.js"></script>
+    <script defer src="/__/firebase/8.4.3/firebase-functions.js"></script>
+    <script defer src="/__/firebase/8.4.3/firebase-analytics.js"></script>
+    <script defer src="/__/firebase/8.4.3/firebase-performance.js"></script>
+
+    <!-- Initialize Firebase -->
+    <script defer src="/__/firebase/init.js?useEmulator=true"></script>
+</head>

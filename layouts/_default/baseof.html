@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang='{{ $.Site.LanguageCode | default "en" }}'>
+
+    {{ partial "head" . }}
+
+    <body>
+        {{ partial "navbar" . }}
+
+        <main role="main">
+            {{ block "main" . }}{{ end }}
+
+            {{ partial "toast" (dict "id" "cookie-toast" "icon" "cookie" "title" "Grab a cookie!" "text" "Hi there! I use cookies to track visits to my website. I do not store any personal information. Hope that's ok with you :) <a href='https://www.cookiesandyou.com/' rel='noreferrer' target='_blank'>What are cookies?</a>") }}
+            {{ partial "toast" (dict "id" "success-toast" "icon" "check" "title" "Thank you!" "text" "You'll hear from me soon! Keep an eye on your inbox :)") }}
+            {{ partial "toast" (dict "id" "error-toast" "icon" "times" "title" "Oops!" "text" "Something went wrong. Please contact me at <a href='mailto:hello@piafc.com'>hello@piafc.com</a> if this error occurs again.") }}
+        </main>
+
+        <noscript>This website needs JavaScript enabled in the browser in order to work properly</noscript>
+
+        <!-- JavaScript -->
+        {{ $all_scripts := resources.Match "scripts/*.js" }}
+        {{ $js :=  $all_scripts | resources.Concat "scripts/bundle.js" | minify | fingerprint }}
+        <script defer type="text/javascript" src="{{ $js.RelPermalink }}" integrity="{{ $js.Data.Integrity }}"></script>
+    </body>
+
+</html>

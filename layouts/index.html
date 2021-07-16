@@ -1,0 +1,18 @@
+{{ define "main" }}
+<section id="folders">
+    <div class="content">
+        <div class="groups">
+            {{ range $group := (where .Site.RegularPages "Type" "groups") }}
+
+            <a href="{{ .RelPermalink }}" class="card-container">
+                <div class="card bg-yellow flex-center">
+                    {{ partial (printf "svg/%s-icon.svg" .Title | urlize) . }}
+                </div>
+                <p class="text-center">{{ .Title }}</p>
+            </a>
+
+            {{ end }}
+        </div>
+    </div>
+</section>
+{{ end }}

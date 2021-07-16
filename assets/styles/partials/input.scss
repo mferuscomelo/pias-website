@@ -1,0 +1,194 @@
+.form-input:not(.checkbox) {
+  position: relative;
+  margin: 2rem 0;
+
+  &:not(.dropdown) label {
+    position: absolute;
+    left: 1rem;
+    top: 1.15rem;
+    color: $grey-color;
+    transition: all 0.2s;
+    background-color: transparent;
+    line-height: 1;
+    padding: 0 0.5rem;
+    font-weight: 500;
+  }
+
+  .input-element {
+    line-height: 1;
+    border: 1px solid $yellow-color-light;
+    border-radius: $border-radius;
+    background-color: $yellow-color;
+    padding: 1.15rem 1rem 0.85rem 1rem;
+    width: 100%;
+    resize: none;
+    transition: all 0.2s;
+    font-family: "Montserrat", sans-serif;
+    font-size: 1rem;
+    color: $white-color;
+
+    &:hover:not(.active) {
+      border: 1px solid $white-color;
+    }
+
+    &:focus {
+      outline: none;
+      border: 1px solid $white-color !important;
+    }
+
+    &.active + label {
+      top: -0.425rem;
+      left: 1rem;
+      font-size: 0.85rem;
+      background-color: $yellow-color;
+      color: $white-color;
+    }
+  }
+
+  .button {
+    padding: 0.75rem 1.5rem !important;
+  }
+
+  &.button .button {
+    text-transform: inherit;
+    font-weight: 500;
+  }
+
+  textarea.input-element {
+    height: 10rem;
+    line-height: 1.5;
+
+    &::-webkit-scrollbar {
+      width: 2.5px;
+      background-color: transparent;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background-color: $yellow-color-extra-dark;
+      border-radius: $border-radius;
+    }
+  }
+
+  .error {
+    color: crimson;
+    font-size: 0.85rem;
+    margin: 0;
+    position: absolute;
+    bottom: -1rem;
+    left: 1rem;
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  &.has-error {
+    .error {
+      opacity: 1;
+    }
+
+    .input-element {
+      // box-shadow: 0 0 0 1.5px crimson;
+      border: 1px solid crimson !important;
+      color: crimson;
+      margin-bottom: 0.5rem;
+    }
+
+    label {
+      color: crimson !important;
+    }
+  }
+}
+
+.form-input.checkbox {
+  position: relative;
+
+  .options {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: auto;
+    gap: 15px;
+    align-items: center;
+  }
+
+  input[type="checkbox"] {
+    position: absolute;
+    visibility: hidden;
+    display: none;
+
+    &:checked + label {
+      border-color: $yellow-color-extra-dark;
+      color: $yellow-color-extra-dark;
+    }
+  }
+
+  label {
+    border: 1px solid $yellow-color-light;
+    border-radius: $border-radius;
+    background-color: $yellow-color;
+    color: $grey-color;
+    cursor: pointer;
+    padding: 0.5rem 1.5rem;
+    line-height: normal;
+    width: 100%;
+    text-align: center;
+  }
+
+  .error {
+    color: crimson;
+    font-size: 0.85rem;
+    margin: 0;
+    position: absolute;
+    bottom: -1.5rem;
+    left: 1rem;
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .container.has-error {
+    padding: 5px;
+    border: 1px solid crimson !important;
+    border-radius: $border-radius;
+    color: crimson;
+    margin-bottom: 0.5rem;
+
+    & + .error {
+      opacity: 1;
+    }
+  }
+}
+
+.form-input.dropdown {
+  label {
+    margin-right: 15px;
+  }
+
+  select {
+    float: left;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -ms-appearance: none;
+    background-image: url("/img/chevron-down.svg");
+    background-repeat: no-repeat;
+    background-size: 25px 25px;
+    background-position: calc(100% - 0.5rem) 12.5px;
+    cursor: pointer;
+  }
+}
+
+@media (max-width: 550px) {
+  .form-input.buttons {
+    margin: 1rem auto;
+  }
+
+  .form-input .button {
+    text-transform: uppercase;
+  }
+}
+
+input[required]:not(input[type="checkbox"]) + label:after,
+textarea[required] + label:after,
+.checkbox .question:after {
+  color: $yellow-color-extra-dark;
+  content: "*";
+  display: inline;
+}

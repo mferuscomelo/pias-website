@@ -1,0 +1,247 @@
+@import "partials/variables";
+@import "partials/buttons";
+@import "partials/flex";
+@import "partials/input";
+@import "partials/navbar";
+@import "partials/socials";
+@import "partials/toast";
+@import "partials/typography";
+
+@import "about";
+@import "gallery";
+@import "groups";
+@import "index";
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: $yellow-color;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: $yellow-color-dark;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: $yellow-color-extra-dark;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  // height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: Montserrat, "Helvetica Neue", sans-serif;
+  line-height: 1.75;
+  scrollbar-width: thin;
+  scrollbar-color: $yellow-color-dark $yellow-color-extra-dark;
+  color: $yellow-color-extra-dark;
+  scroll-behavior: smooth;
+  background-color: $yellow-color-extra-light;
+}
+
+main {
+  position: relative;
+}
+
+.no-margin {
+  margin: 0 !important;
+}
+
+.no-margin-top {
+  margin-top: 0 !important;
+}
+
+.no-margin-bottom {
+  margin-bottom: 0 !important;
+}
+
+.margin-auto {
+  margin: auto !important;
+}
+
+.no-padding {
+  padding: 0 !important;
+}
+
+.bg-yellow {
+  background-color: $yellow-color;
+}
+
+.bg-yellow-light {
+  background-color: $yellow-color-light;
+}
+
+.bg-yellow-dark {
+  background-color: $yellow-color-dark;
+}
+
+.yellow-border {
+  border: 1px solid $yellow-color-extra-dark;
+}
+
+.position-relative {
+  position: relative;
+}
+
+.card {
+  border-radius: $border-radius;
+
+  padding: 1.5rem 1rem;
+
+  &.hoverable {
+    transition: $transition;
+
+    &:hover {
+      transform: scale(1.05);
+      -webkit-transform: scale(1.05);
+      -moz-transform: scale(1.05);
+      -ms-transform: scale(1.05);
+      -o-transform: scale(1.05);
+    }
+  }
+
+  .number {
+    &.normal {
+      font-size: 1.75rem;
+    }
+
+    &.circled {
+      height: 75px;
+      width: 75px;
+
+      border: 1px solid $yellow-color-extra-dark;
+      border-radius: 50%;
+
+      color: $yellow-color-extra-dark;
+
+      font-size: 2rem;
+      font-weight: 500;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+
+  .title {
+    margin: 15px 0;
+  }
+
+  .button {
+    margin-top: 15px;
+  }
+}
+
+.content {
+  max-width: 1300px;
+  padding: 2rem 5rem;
+  margin: auto;
+
+  @media screen and (max-width: 600px) {
+    padding: 25px;
+  }
+}
+
+// .three-cards {
+//   display: grid;
+//   grid-template-rows: auto;
+//   grid-template-columns: 1fr 1fr 1fr;
+//   column-gap: 50px;
+//   row-gap: 50px;
+//   justify-items: center;
+//   justify-content: center;
+
+//   margin: 50px auto;
+
+//   .card {
+//     max-width: 400px;
+//   }
+
+//   @media screen and (max-width: 1150px) {
+//     grid-template-columns: 1fr;
+//     grid-template-rows: auto;
+//     row-gap: 50px;
+//   }
+// }
+
+// .service-text {
+//   margin-top: 50px;
+// }
+
+.gallery img {
+  border-radius: $border-radius;
+  max-width: 100%;
+  height: auto;
+}
+
+// .two-cols {
+//   display: grid;
+//   grid-template-columns: 1fr 1fr;
+//   grid-template-rows: 1fr;
+//   justify-content: center;
+//   justify-items: center;
+//   column-gap: 50px;
+//   margin: auto;
+
+//   @media screen and (max-width: 600px) {
+//     grid-template-columns: 1fr;
+//     grid-template-rows: 1fr 1fr;
+//     align-items: flex-end;
+//   }
+
+//   &.two-three {
+//     grid-template-columns: 2fr 3fr;
+
+//     @media screen and (max-width: 600px) {
+//       display: block;
+//     }
+//   }
+
+//   .col {
+//     width: 100%;
+//   }
+// }
+
+// .spinner {
+//   fill: $yellow-color-extra-dark;
+//   height: 25px;
+//   margin-right: 15px;
+// }
+
+// #submitForm {
+//   height: 45px;
+//   padding: 0 1.5rem !important;
+// }
+
+img {
+  aspect-ratio: attr(width) / attr(height);
+}
+
+// .color {
+//   height: 3rem;
+//   width: 3rem;
+//   border-radius: $border-radius;
+//   margin: 10px;
+// }
+
+.full-width {
+  width: 100%;
+}
+
+img,
+svg {
+  display: block;
+  border-radius: $border-radius;
+}

@@ -1,0 +1,14 @@
+{{ define "main" }}
+<section id="group">
+    <div class="content">
+        <a href="/" class="no-underline">
+            <h1 class="groups-title yellow-color-extra-dark">
+                {{ partial "svg/arrow-left.svg" . }}
+                {{ .Title }}
+            </h1>
+        </a>
+
+        {{ partial "gallery" . }}
+    </div>
+</section>
+{{ end }}

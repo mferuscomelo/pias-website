@@ -1,0 +1,11 @@
+<div class="gallery">
+    {{ $dashedName := .File.TranslationBaseName}}
+    {{ $files := readDir (printf "assets/images/%s/" $dashedName) }}
+
+    {{ range $files }}
+    {{ $image_jpg := resources.Get (printf "/images/%s/%s" $dashedName .Name) }}
+
+    <!-- TODO: descriptions -->
+    {{ partial "picture" (dict "img_jpg" $image_jpg "alt" "") }}
+    {{ end }}
+</div>

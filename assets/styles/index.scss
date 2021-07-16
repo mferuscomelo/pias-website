@@ -1,0 +1,22 @@
+.groups {
+    display: grid;
+    grid-template: auto/1fr 1fr;
+    justify-items: center;
+    align-content: center;
+    row-gap: 25px;
+}
+
+.card-container {
+    width: 325px;
+    cursor: pointer;
+    transition: $transition;
+    text-decoration: none;
+
+    &:hover {
+        scale: 1.1;
+    }
+
+    .card {
+        height: 250px;
+    }
+}

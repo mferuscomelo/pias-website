@@ -1,0 +1,12 @@
+<div class="card bg-yellow-light yellow-border flex-center toast" id="{{ .id }}">
+    <div class="close-icon">
+        <i>{{ partial "svg/times.svg" . }}</i>
+    </div>
+    <div class="icon">
+        <i class="toast-icon">{{ partial (printf "svg/%s.svg" .icon) . }}</i>
+    </div>
+    <div class="text">
+        <h4 class="no-margin">{{ .title }}</h4>
+        <p class="yello-color-dark no-margin-bottom">{{ .text | safeHTML }}</p>
+    </div>
+</div>

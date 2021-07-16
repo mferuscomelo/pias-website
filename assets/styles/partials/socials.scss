@@ -1,0 +1,22 @@
+.social-link {
+  margin: 10px;
+
+  border-radius: 50%;
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  color: $yellow-color-extra-dark;
+
+  height: 50px;
+  width: 50px;
+
+  &:hover {
+    background-color: $yellow-color-dark;
+  }
+
+  i {
+    svg {
+      height: 1.5rem;
+      border-radius: 0;
+    }
+  }
+}
