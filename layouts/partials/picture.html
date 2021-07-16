@@ -9,20 +9,20 @@
 
 {{ $img_jpg := .img_jpg }}
 
-{{ $lqip_w := default "20x" }}
-{{ $tiny_w := default "500x" }}
+{{ $tiny_w := default "300x" }}
+{{ $xsmall_w := default "500x" }}
 {{ $small_w := default "800x" }}
 {{ $medium_w := default "1200x" }}
 {{ $large_w := default "1500x" }}
 
-{{ $lqip_jpg := $img_jpg.Resize $lqip_w }}
 {{ $tiny_jpg := $img_jpg.Resize $tiny_w }}
+{{ $xsmall_jpg := $img_jpg.Resize $xsmall_w }}
 {{ $small_jpg := $img_jpg.Resize $small_w }}
 {{ $medium_jpg := $img_jpg.Resize $medium_w }}
 {{ $large_jpg := $img_jpg.Resize $large_w }}
 
-{{ $lqip_webp := $img_jpg.Resize (print $lqip_w " webp") }}
 {{ $tiny_webp := $img_jpg.Resize (print $tiny_w " webp") }}
+{{ $xsmall_webp := $img_jpg.Resize (print $xsmall_w " webp") }}
 {{ $small_webp := $img_jpg.Resize (print $small_w " webp") }}
 {{ $medium_webp := $img_jpg.Resize (print $medium_w " webp") }}
 {{ $large_webp := $img_jpg.Resize (print $large_w " webp") }}
@@ -30,7 +30,10 @@
 <picture>
   <source srcset='
     {{ if ge $img_jpg.Width "500" }}
-      {{ with $tiny_webp.RelPermalink }} {{.}} 500w {{ end }},
+      {{ with $tiny_webp.RelPermalink }} {{.}} 300w {{ end }},
+    {{ end }}
+    {{ if ge $img_jpg.Width "500" }}
+      {{ with $xsmall_webp.RelPermalink }} {{.}} 500w {{ end }},
     {{ end }}
     {{ if ge $img_jpg.Width "800" }}
       {{ with $small_webp.RelPermalink }} {{.}} 800w {{ end }},
@@ -44,7 +47,10 @@
     {{ with $img_jpg }} {{ .RelPermalink }} {{ .Width }}w {{ end }},' type="image/webp">
   <source srcset='
     {{ if ge $img_jpg.Width "500" }}
-      {{ with $tiny_jpg.RelPermalink }} {{.}} 500w {{ end }},
+      {{ with $tiny_jpg.RelPermalink }} {{.}} 300w {{ end }},
+    {{ end }}
+    {{ if ge $img_jpg.Width "500" }}
+      {{ with $xsmall_jpg.RelPermalink }} {{.}} 500w {{ end }},
     {{ end }}
     {{ if ge $img_jpg.Width "800" }}
       {{ with $small_jpg.RelPermalink }} {{.}} 800w {{ end }},
