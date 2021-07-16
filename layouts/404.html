@@ -1,0 +1,14 @@
+{{ define "main" }}
+
+<div class="flex-center flex-column not-found">
+    <h1 class="yellow-color no-margin">404</h1>
+    <h2 class="no-margin">Page not found :(</h2>
+    <a href="/" class="button">
+        Home
+        <i class="icon-right">{{ partial "svg/chevron-right.svg" . }}</i>
+    </a>
+
+    {{ partial "socials" . }}
+</div>
+
+{{ end }}
