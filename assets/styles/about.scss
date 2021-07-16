@@ -1,0 +1,11 @@
+.about-container {
+    display: grid;
+    grid-template: auto / 1fr 2fr;
+    gap: 2rem;
+    align-items: center;
+
+    img {
+        width: 100%;
+        height: auto;
+    }
+}

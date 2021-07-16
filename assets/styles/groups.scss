@@ -1,0 +1,13 @@
+.groups-title {
+    position: relative;
+    text-decoration: none;
+
+    svg {
+        position: absolute;
+        left: -4rem;
+        top: 50%;
+        
+        height: 25px;
+        transform: translateY(-50%);
+    }
+}
