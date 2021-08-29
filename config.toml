@@ -8,4 +8,8 @@ publishDir = "public"
   minifyOutput = true
   
 [markup.goldmark.renderer]
-    unsafe= true
+  unsafe= true
+
+[params]
+  email = "mailto:contact@piafc.com"
+  instagram = "https://www.instagram.com/love_pia.fc/"

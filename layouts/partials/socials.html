@@ -1,10 +1,10 @@
 <div class="socials flex">
-    <a href="{{ .Site.Data.links.instagram }}" onclick="logEvent('click', 'link', 'instagram')"
+    <a href="{{ site.Params.instagram }}" onclick="logEvent('click', 'link', 'instagram')"
         class="social-link flex-center bg-yellow" aria-label="Instagram">
         <i>{{ partial "svg/instagram.svg" . }}</i>
     </a>
 
-    <a href="{{ .Site.Data.links.email }}" onclick="logEvent('click', 'link', 'email')"
+    <a href="{{ site.Params.email }}" onclick="logEvent('click', 'link', 'email')"
         class="social-link flex-center bg-yellow" aria-label="Email">
         <i>{{ partial "svg/envelope.svg" . }}</i>
     </a>
