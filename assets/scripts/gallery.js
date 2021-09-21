@@ -29,6 +29,10 @@ images?.forEach((image) => {
 arrowLeft.addEventListener("click", (event) => {
   index--;
 
+  if (index < 0) {
+    index = images.length - 1;
+  }
+
   images?.forEach((image) => {
     if (image.id == index) {
       image.classList.remove("hidden");
@@ -40,6 +44,10 @@ arrowLeft.addEventListener("click", (event) => {
 
 arrowRight.addEventListener("click", (event) => {
   index++;
+
+  if (index > images.length - 1) {
+    index = 0;
+  }
 
   images?.forEach((image) => {
     if (image.id == index) {
