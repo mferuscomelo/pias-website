@@ -1,11 +1,31 @@
 <div class="gallery">
-    {{ $dashedName := .File.TranslationBaseName}}
+    {{ $dashedName := .File.TranslationBaseName }}
     {{ $files := readDir (printf "assets/images/%s/" $dashedName) }}
 
-    {{ range $files }}
-    {{ $image_jpg := resources.Get (printf "/images/%s/%s" $dashedName .Name) }}
+    <div class="arrow-left hidden">
+        {{ partial "svg/arrow-left.svg" . }}
+    </div>
+
+    {{ $title := .Title }}
+
+    {{ range $index, $fileInfo := $files }}
+
+    <h2 class="title hidden" id="{{ $index }}">
+        {{ if eq $title "cards" }}
+        {{ humanize (replace $fileInfo.Name ".jpg" "") }}
+        {{ end }}
+    </h2>
+
+    {{ $image_jpg := resources.Get (printf "/images/%s/%s" $dashedName $fileInfo.Name) }}
 
     <!-- TODO: descriptions -->
-    {{ partial "picture" (dict "img_jpg" $image_jpg "alt" "") }}
+    <div class="gallery-image" id="{{ $index }}">
+        {{ partial "picture" (dict "img_jpg" $image_jpg "alt" "") }}
+    </div>
+
     {{ end }}
+
+    <div class="arrow-right hidden">
+        {{ partial "svg/arrow-right.svg" . }}
+    </div>
 </div>
