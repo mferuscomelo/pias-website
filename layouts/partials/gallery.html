@@ -1,5 +1,4 @@
 <div class="gallery">
-
     {{ $dashedName := .File.TranslationBaseName }}
     {{ $files := readDir (printf "assets/images/%s/" $dashedName) }}
 
@@ -7,9 +6,15 @@
         {{ partial "svg/arrow-left.svg" . }}
     </div>
 
+    {{ $title := .Title }}
+
     {{ range $index, $fileInfo := $files }}
 
-    <h2 class="title hidden" id="{{ $index }}">{{ humanize (replace $fileInfo.Name ".jpg" "") }}</h2>
+    <h2 class="title hidden" id="{{ $index }}">
+        {{ if eq $title "cards" }}
+        {{ humanize (replace $fileInfo.Name ".jpg" "") }}
+        {{ end }}
+    </h2>
 
     {{ $image_jpg := resources.Get (printf "/images/%s/%s" $dashedName $fileInfo.Name) }}
 
