@@ -7,11 +7,11 @@
         {{ partial "svg/arrow-left.svg" . }}
     </div>
 
-    {{ range $index, $file := $files }}
+    {{ range $index, $fileInfo := $files }}
 
-    <h2 class="title hidden" id="{{ $index }}">{{ $file.Name }}</h2>
+    <h2 class="title hidden" id="{{ $index }}">{{ humanize (replace $fileInfo.Name ".jpg" "") }}</h2>
 
-    {{ $image_jpg := resources.Get (printf "/images/%s/%s" $dashedName $file.Name) }}
+    {{ $image_jpg := resources.Get (printf "/images/%s/%s" $dashedName $fileInfo.Name) }}
 
     <!-- TODO: descriptions -->
     <div class="gallery-image" id="{{ $index }}">
