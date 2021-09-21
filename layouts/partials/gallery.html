@@ -2,10 +2,22 @@
     {{ $dashedName := .File.TranslationBaseName}}
     {{ $files := readDir (printf "assets/images/%s/" $dashedName) }}
 
-    {{ range $files }}
-    {{ $image_jpg := resources.Get (printf "/images/%s/%s" $dashedName .Name) }}
+    <div class="arrow-left hidden">
+        {{ partial "svg/arrow-left.svg" . }}
+    </div>
+
+    {{ range $index, $file := $files }}
+
+    {{ $image_jpg := resources.Get (printf "/images/%s/%s" $dashedName $file.Name) }}
 
     <!-- TODO: descriptions -->
-    {{ partial "picture" (dict "img_jpg" $image_jpg "alt" "") }}
+    <div class="gallery-image" id="{{ $index }}">
+        {{ partial "picture" (dict "img_jpg" $image_jpg "alt" "") }}
+    </div>
+
     {{ end }}
+
+    <div class="arrow-right hidden">
+        {{ partial "svg/arrow-right.svg" . }}
+    </div>
 </div>
